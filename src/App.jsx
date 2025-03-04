@@ -6,14 +6,14 @@ import AdminPanel from './pages/AdminPanel';
 import ProductDiscovery from "./components/Products";
 import { SpecialOptionsPage } from "./components/SpecialOptionsPage";
 import loader from './assets/loader.json';
-import Navbar from "./components/com1p";
+import Navbar from "./components/Navbar";
 import FlowerSlider from "./components/FlowerSlider";
 import FlowersWeekRecom from "./components/FlowersWeekRecom";
 import TrendingFlowers from "./components/TrendingFlowers";
 import SeasonalEdits from "./components/SeasonalEdits";
 import Offers from "./components/Offers";
 import Feedback from "./components/Feedback";
-import Subscription from "./components/com4p";
+import Subscription from "./components/Subscription";
 import Perks from "./components/Perks";
 import Footer from "./components/Footer";
 
