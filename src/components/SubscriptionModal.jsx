@@ -15,8 +15,7 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
       ...formData,
       [name]: value
     });
-    
-    // Clear error when user types
+
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -27,25 +26,22 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validate form
     const newErrors = {};
+
     if (!formData.name.trim()) {
       newErrors.name = 'Обязательное поле';
     }
     if (!formData.phoneNumber.trim()) {
       newErrors.phoneNumber = 'Обязательное поле';
     }
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    await createDeal(formData)
-    // Submit form logic would go here
-    console.log('Form submitted:', formData);
     
-    // Reset form and close modal
+    await createDeal(formData);
+    console.log('Form submitted:', formData);
     setFormData({ name: '', phoneNumber: '' });
     onClose();
   };
@@ -54,8 +50,9 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl overflow-hidden flex w-full max-w-5xl h-auto relative">
-        {/* Close button - positioned absolutely */}
+      <div className="bg-white rounded-2xl overflow-hidden flex flex-col md:flex-row w-full max-w-5xl h-auto relative">
+        
+        {/* Close Button - better placement for mobile */}
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 bg-white text-black z-10 p-1 rounded-full hover:bg-gray-100"
@@ -64,8 +61,8 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
           <FaRegWindowClose size={28} strokeWidth={2} />
         </button>
         
-        {/* Left side - Image */}
-        <div className="w-1/2 bg-gray-200 flex items-center justify-center">
+        {/* Left Side - Image */}
+        <div className="w-full md:w-1/2 h-64 md:h-auto bg-gray-200 flex items-center justify-center">
           <img 
             src="https://res.cloudinary.com/dyyyaoggd/image/upload/v1741003270/IMAGE_2025-03-03_17_01_01_n6zc2i.jpg" 
             alt="Цветочная подписка" 
@@ -73,21 +70,24 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
           />
         </div>
         
-        {/* Right side - Form */}
-        <div className="w-1/2 p-10 flex flex-col">
+        {/* Right Side - Form */}
+        <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col">
+          
           {/* Logo */}
-          <div className="mb-8 flex justify-center">
+          <div className="mb-6 flex justify-center">
             <img 
               src="https://res.cloudinary.com/dyyyaoggd/image/upload/v1740998675/logo_sppzis.svg" 
               alt="Liana Flowers" 
-              className="h-16"
+              className="h-14 md:h-16"
             />
           </div>
           
-          <h2 className="text-3xl font-bold text-black mb-6">Подписка на цветы</h2>
-          
+          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 md:mb-6 text-center md:text-left">
+            Подписка на цветы
+          </h2>
+
           <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
-            <div className="mb-6">
+            <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                 Имя
               </label>
@@ -97,13 +97,13 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full p-4 bg-white border text-black ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-black`}
+                className={`w-full p-3 md:p-4 bg-white border text-black ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-black`}
                 placeholder="Введите ваше имя"
               />
               {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
             </div>
             
-            <div className="mb-8">
+            <div className="mb-6">
               <label htmlFor="phoneNumber" className="block text-sm font-medium text-black mb-2">
                 Номер телефона
               </label>
@@ -113,7 +113,7 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className={`w-full p-4 bg-white text-black border ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-black`}
+                className={`w-full p-3 md:p-4 bg-white text-black border ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-black`}
                 placeholder="Введите ваш номер телефона"
               />
               {errors.phoneNumber && <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>}
@@ -122,7 +122,7 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
             <div className="mt-auto flex justify-center">
               <button
                 type="submit"
-                className="w-[60%] bg-stone-950 text-white py-2 px-1 rounded-2xl hover:bg-stone-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black text-lg font-medium"
+                className="w-full md:w-[60%] bg-stone-950 text-white py-3 md:py-2 rounded-2xl hover:bg-stone-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black text-lg font-medium"
               >
                 Подписаться
               </button>
