@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import SubscriptionModal from "./SubscriptionModal";
+import FlowerSubscriptionModal from "./FlowerSub";
+import {FlowerSelectionModal} from "./SubFlowerType";
+import FlowerOrderModal from "./FlowerOrderModal";
 
 const Subscription = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -117,10 +120,13 @@ const Subscription = () => {
       </div>
 
       {/* Modal Component */}
-      <SubscriptionModal 
+      {/* <SubscriptionModal 
         isOpen={isModalOpen} 
         onClose={closeModal} 
-      />
+      /> */}
+      {/* <FlowerSubscriptionModal isOpen={isModalOpen} onClose={setIsModalOpen}  /> */}
+      {/* <FlowerOrderModal /> */}
+      {isModalOpen && <FlowerSelectionModal isOpen={isModalOpen} onClose={setIsModalOpen} />}
     </div>
   );
 };

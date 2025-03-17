@@ -9,21 +9,21 @@ const FlowerSlider = () => {
     {
       title: "Мы создаем красоту в каждом букете.",
       subtitle: "Свежие цветы, стильные композиции и быстрая доставка – все для ваших особенных моментов",
-      cta: "SHOP NOW",
+      cta: "Заказать",
       image: 'https://res.cloudinary.com/dyyyaoggd/image/upload/v1740739781/IMAGE_2025-02-28_15_49_20_tgh4we.jpg',
       imageAlt: "Pink tulips bouquet wrapped in kraft paper",
     },
     {
       title: "Лилия, роза или пион – в Liana Flowers найдется идеальный букет для каждого.",
       subtitle: "Подчеркните свои чувства с помощью живых, ярких и ароматных композиций.",
-      cta: "VIEW COLLECTION",
+      cta: "Увидеь все",
       image: 'https://res.cloudinary.com/dyyyaoggd/image/upload/v1740739973/IMAGE_2025-02-28_15_52_35_sozuu2.jpg',
       imageAlt: "Red roses arrangement",
     },
     {
       title: "Лилия, роза или пион – в Liana Flowers найдется идеальный букет для каждого.",
       subtitle: "Доставим быстро, оформим с любовью!",
-      cta: "ORDER TODAY",
+      cta: "Заказать",
       image: 'https://res.cloudinary.com/dyyyaoggd/image/upload/v1740739973/IMAGE_2025-02-28_15_52_37_vmfzpb.jpg',
       imageAlt: "White and pink peonies bouquet",
     },
@@ -74,7 +74,7 @@ const FlowerSlider = () => {
                 </div>
                 <h3 className="text-xs md:text-sm tracking-widest text-gray-800 mb-2 text-center px-2">{slide.title}</h3>
                 <h2 className="text-lg md:text-2xl font-bold text-gray-800 tracking-wider mb-4 md:mb-6 text-center px-2">{slide.subtitle}</h2>
-                <a href="#" className="text-xs md:text-sm tracking-wider bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-2xl">{slide.cta}</a>
+                <a href="/products" className="text-xs md:text-sm tracking-wider bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-2xl">{slide.cta}</a>
               </div>
             </div>
           ))}

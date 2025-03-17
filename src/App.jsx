@@ -62,7 +62,7 @@ const App = () => {
                     <FlowersWeekRecom type="week" likedProducts={likedProducts} setLikedProducts={setLikedProducts} />
                     <TrendingFlowers />
                     <Subscription />
-                    <SeasonalEdits />
+                    {/* <SeasonalEdits /> */}
                     <FlowersWeekRecom type="special" />
                     <Offers />
                     <Feedback />

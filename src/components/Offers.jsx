@@ -10,7 +10,7 @@ const Offers = () => {
     },
     {
       id: 2,
-      title: "КОРПОРАТИВНЫЙ ПОДАРОК",
+      title: "КОРПОРАТИВНЫЕ ЗАКАЗЫ",
       image: "https://www.flowerbx.com/media/wysiwyg/Group_94_2_1_.jpg",
       alt: "Подарочная коробка с белыми цветами"
     },
@@ -22,13 +22,13 @@ const Offers = () => {
     },
     {
       id: 4,
-      title: "ЕЖЕНЕДЕЛЬНЫЕ ЦВЕТЫ",
+      title: "СВЕЖИЕ ПОСТАВКИ",
       image: "https://www.flowerbx.com/media/wysiwyg/Rectangle_36_1_.jpg",
       alt: "Белые цветы в белых вазах с книгами и аксессуарами"
     },
     {
       id: 5,
-      title: "СВАДЕБНЫЕ ЦВЕТЫ",
+      title: "БУКЕТЫ НЕВЕСТЫ",
       image: "https://www.flowerbx.com/media/wysiwyg/Rectangle_40.jpg",
       alt: "Невеста с розовым букетом на фоне украшенного цветами стола"
     },

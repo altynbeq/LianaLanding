@@ -53,17 +53,19 @@ const SubscriptionModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl overflow-hidden flex w-full max-w-5xl h-auto relative">
         {/* Close button - positioned absolutely */}
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 bg-white text-black z-10 p-1 rounded-full hover:bg-gray-100"
-          aria-label="Закрыть"
-        >
-          <FaRegWindowClose size={28} strokeWidth={2} />
-        </button>
-        
+        <button
+              onClick={onClose}
+              className="absolute top-4 right-4 bg-black text-white z-10 p-2 rounded-full hover:bg-gray-100"
+              aria-label="Закрыть модальное окно"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+    
         {/* Left side - Image */}
         <div className="w-1/2 bg-gray-200 flex items-center justify-center">
           <img 

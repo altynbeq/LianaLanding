@@ -9,7 +9,7 @@ const Perks = () => {
           <div className="flex bg-gray-100 px-8 py-5 rounded-2xl items-center gap-4 shadow-md w-full">
             <FaBoxOpen className="w-7 h-7 text-black flex-shrink-0" />
             <div>
-              <h3 className="font-medium text-black">Заботливые цветы</h3>
+              <h3 className="font-medium text-black">Цветы для любимых</h3>
               <p className="text-sm text-gray-600">Эксклюзивные предложения на прекрасные букеты.</p>
             </div>
           </div>

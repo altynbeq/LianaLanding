@@ -160,7 +160,7 @@ const FlowersWeekRecom = ({ likedProducts = [], setLikedProducts, type }) => {
       </div>
 
       {/* Modal */}
-      {showModal && selectedFlower && <SelectedFlowerModal setCurrentImageIndex={setCurrentImageIndex} currentImageIndex={currentImageIndex} selectedFlower={selectedFlower} closeModal={closeModal} /> }
+      {showModal && selectedFlower && <SelectedFlowerModal setCurrentImageIndex={setCurrentImageIndex} currentImageIndex={currentImageIndex} selectedFlower={selectedFlower} setLikedProducts={setLikedProducts} closeModal={closeModal} /> }
     </div>
   );
 };
