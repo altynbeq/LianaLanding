@@ -26,7 +26,7 @@ const Navbar = () => {
       <div>
         <div
           className={`border-b-2 bg-white z-50 text-base font-light left-0 fixed top-0 w-full border-neutral-100 border-solid transition-transform duration-300 ${
-            isVisible ? "translate-y-0" : "-translate-y-full"
+            isVisible ? "translate-y-0 bg-white" : "-translate-y-full"
           }`}
         >
           <div className="items-center justify-between px-6 w-full m-auto sm:max-w-[40.00rem] md:max-w-3xl md:relative md:pl-6 md:pr-6 md:pt-5 md:pb-5 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl">
@@ -64,11 +64,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="pb-4 text-gray-800 pt-2 md:pl-6 md:pr-6">
-              <Link to="/" className="text-gray-800">
-                Экспресс-доставка
-              </Link>
-            </div>
+            
 
             <div className="pb-4 pt-2 md:pl-6 md:pr-6">
               <Link to="/" className="text-gray-800">
@@ -78,25 +74,13 @@ const Navbar = () => {
 
             <div className="pb-4 pt-2 md:pl-6 md:pr-6">
               <Link to="/" className="text-gray-800">
-                События
-              </Link>
-            </div>
-
-            <div className="pb-4 pt-2 md:pl-6 md:pr-6">
-              <Link to="/" className="text-gray-800">
-                Вазы
+                Отзывы
               </Link>
             </div>
 
             <div className="pb-4 pt-2 md:pl-6 md:pr-6">
               <Link to="/" className="text-gray-800">
                 Мероприятия
-              </Link>
-            </div>
-
-            <div className="pb-4 pt-2 md:pl-6 md:pr-6">
-              <Link to="/" className="text-gray-800">
-                Индивидуальные услуги
               </Link>
             </div>
 

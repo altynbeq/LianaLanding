@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // pages
@@ -21,7 +21,6 @@ import Footer from "./components/Footer";
 import { CartButton } from './components/Cart';
 import LikedItemsModal from "./components/LikedItemsModal";
 
-import Flower from './assets/Flower.gif';
 
 const App = () => {
 
@@ -64,7 +63,7 @@ const App = () => {
                     <Subscription />
                     {/* <SeasonalEdits /> */}
                     <FlowersWeekRecom type="special" />
-                    <Offers />
+                    {/* <Offers /> */}
                     <Feedback />
                     <Footer />
                   </div>

@@ -22,7 +22,7 @@ const Button = ({ children, onClick, className = '', variant = 'primary' }) => {
   );
 };
 
-const FlowerOrderModal = () => {
+const FlowerOrderModal = ({ onClose }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [deliveryMethod, setDeliveryMethod] = useState('');
   const [subscriptionSize, setSubscriptionSize] = useState('7 букетов');
@@ -37,7 +37,7 @@ const FlowerOrderModal = () => {
   return (
     <div className='fixed inset-0 bg-black bg-opacity-50 w-full flex items-center justify-center z-50 p-4'>
       <div className="bg-white p-10 rounded-2xl overflow-hidden flex w-full max-w-7xl h-auto relative">
-        <div isOpen={isOpen} onClose={() => setIsOpen(false)} className="w-full">
+        <div isOpen={isOpen} onClose={() => onClose()} className="w-full">
           <div className="grid grid-cols-3 gap-8">
             {/* Left Side - Order Form */}
             <div className='mr-10 flex flex-col w-full'>

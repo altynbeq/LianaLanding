@@ -126,7 +126,23 @@ const Subscription = () => {
       /> */}
       {/* <FlowerSubscriptionModal isOpen={isModalOpen} onClose={setIsModalOpen}  /> */}
       {/* <FlowerOrderModal /> */}
-      {isModalOpen && <FlowerSelectionModal isOpen={isModalOpen} onClose={setIsModalOpen} />}
+      {isModalOpen && 
+        // first one ->
+        <FlowerSelectionModal 
+          isOpen={isModalOpen} 
+          onClose={closeModal} 
+        />
+        // second one -> 
+        // <FlowerSubscriptionModal
+        //   isOpen={isModalOpen} 
+        //   onClose={closeModal}  
+        // />
+
+        // last one
+        // <FlowerOrderModal onClose={closeModal} />
+
+        
+      }
     </div>
   );
 };
