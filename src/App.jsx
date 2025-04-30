@@ -16,7 +16,9 @@ import Feedback from "./components/Feedback";
 import Subscription from "./components/Subscription";
 import Perks from "./components/Perks";
 import Footer from "./components/Footer";
+import { LogIn } from './components/LogIn';
 
+import { ProtectedRoute } from './components/ProtectedRoute';
 // Import CartButton
 import { CartButton } from './components/Cart';
 import LikedItemsModal from "./components/LikedItemsModal";
@@ -67,15 +69,25 @@ const App = () => {
                     <Feedback />
                     <Footer />
                   </div>
+
+                  {!isModalOpen && <CartButton handleCartClick={handleCartClick} likedProducts={likedProducts} />}
                 </>
               }
             />
-            <Route path="/admin-panel" element={<AdminPanel />} />
+            
+            <Route
+              path="/admin-panel"
+              element={
+                <ProtectedRoute>
+                  <AdminPanel />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/logIn" element={<div className="w-screen"> <LogIn /></div>} />
             <Route path="/special-offers" element={ <div className="flex flex-col gap-20" > <Navbar /> <SpecialOptionsPage /> <Footer /></div>} />
             <Route path="/products" element={<div className="flex flex-col gap-20" > <Navbar /> <ProductDiscovery likedProducts={likedProducts} setLikedProducts={setLikedProducts} /> </div>} />
           </Routes>
         {/* Add the CartButton so it appears on all pages */}
-        {!isModalOpen && <CartButton handleCartClick={handleCartClick} likedProducts={likedProducts} />}
 
         {/* Liked Items Modal */}
         {isModalOpen && <LikedItemsModal onClose={handleCloseModal} likedProducts={likedProducts} setLikedProducts={setLikedProducts} />}

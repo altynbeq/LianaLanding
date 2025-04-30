@@ -27,17 +27,17 @@ const AdminPanel = () => {
     { name: 'Заказы', icon: FaShoppingCart },
     { name: 'Клиенты', icon: FaUsers },
     { name: 'Аналитика', icon: FaChartLine },
-    { name: 'Настройки', icon: FaCog },
-    { name: 'Управление контентом', icon: FaFileAlt },
-    { name: 'Уведомления', icon: FaBell },
-    { name: 'Интеграции', icon: FaLink }
+    // { name: 'Настройки', icon: FaCog },
+    // { name: 'Управление контентом', icon: FaFileAlt },
+    // { name: 'Уведомления', icon: FaBell },
+    // { name: 'Интеграции', icon: FaLink }
   ];
 
   return (
     <div className="flex w-screen min-h-screen bg-white">
       {/* Sidebar */}
       <div className={`${isOpen ? 'w-64' : 'w-20'} bg-gray-900 text-white transition-all duration-300 ease-in-out`}>
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
+        <div className="flex items-center  justify-between p-4 border-b border-gray-700">
           <h1 className={`${!isOpen && 'hidden'} font-bold text-xl`}>Admin Panel</h1>
           <button 
             onClick={() => setIsOpen(!isOpen)} 
@@ -54,8 +54,8 @@ const AdminPanel = () => {
               <button
                 key={item.name}
                 onClick={() => setActiveItem(item.name)}
-                className={`w-full flex items-center p-4 hover:bg-gray-700 transition-colors
-                  ${activeItem === item.name ? 'bg-gray-700' : ''}`}
+                className={`w-full  bg-gray-900 flex items-center p-4 hover:bg-gray-700 transition-colors
+                  ${activeItem === item.name ? 'bg-gray-700 subtle-border' : ''}`}
               >
                 <Icon size={20} />
                 <span className={`ml-4 ${!isOpen && 'hidden'}`}>{item.name}</span>
