@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/admin-panel"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/products"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/special-offers"
+  to = "/index.html"
+  status = 200
+  force = true
