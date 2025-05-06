@@ -48,7 +48,7 @@ const FlowerSlider = () => {
   };
 
   return (
-    <div className="w-screen  mt-10 md:h-full  md:mt-20 bg-white">
+    <div className="w-screen mb-20 md:mb-0  mt-10 md:h-full  md:mt-20 bg-white">
       <div className="mx-auto  my-1 md:my-5 h-[90vh] md:h-[75vh] relative overflow-hidden bg-white">
         {/* Slider Container */}
         <div

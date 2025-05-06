@@ -69,7 +69,7 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
   return (
     <div className="flex flex-col min-h-screen bg-white w-screen max-w-full">
       <div className="w-[80%] mx-auto">
-        <h1 className="text-4xl mt-20 text-gray-800 font-normal text-center mb-8">Откройте наши продукты</h1>
+        <h1 className="text-4xl mt-5 md:mt-20 text-gray-800 font-normal text-center mb-8">Откройте наши продукты</h1>
         
         {/* Секция поиска и фильтра */}
         <div className="flex flex-wrap gap-4 mb-8 items-center">
@@ -137,7 +137,7 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
           </div>
         ) : (
           // Сетка продуктов
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid mb-20 md:mb-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
               <div key={product._id} className="flex flex-col">
                 <div className="bg-gray-100 rounded-lg aspect-square mb-4 flex items-center justify-center">

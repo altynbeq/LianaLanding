@@ -29,7 +29,7 @@ export const SelectedFlowerModal = ({ selectedFlower, closeModal, currentImageIn
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed mt-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row relative">
         {/* Left side - Main Image */}
         <div className="md:w-1/2 h-64 md:h-auto">
