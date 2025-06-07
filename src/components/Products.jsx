@@ -3,7 +3,7 @@ import { FaRegHeart, FaHeart, FaSearch, FaFilter } from 'react-icons/fa';
 import { SelectedFlowerModal } from '../subcompents/SelectedFlowerModal';
 
 const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Все');
   const [searchQuery, setSearchQuery] = useState('');
   const [priceFrom, setPriceFrom] = useState('');
   const [priceTo, setPriceTo] = useState('');
@@ -12,7 +12,13 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
   const [selectedProduct, setSelectedProduct] = useState(null); // State to store selected product
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
-  const categories = ['Все', 'Игрушки', 'Шоколад', 'Цветы'];
+  // Define categories with their display names and corresponding category values
+  const categories = [
+    { id: 'Все', value: 'Все' },
+    { id: 'Цветы', value: 'Цветы' },
+    { id: 'Игрушки', value: 'Игрушки' },
+    { id: 'Шоколад', value: 'Шоколад' }
+  ];
 
   useEffect(() => {
     // Fetch products from the API
@@ -47,15 +53,13 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
     setSelectedProduct(null); // Reset selected product when closing modal
   };
 
-  // Filtering logic
+  // Updated filtering logic
   const filteredProducts = products.filter((product) => {
     // Filter by category
-    const matchesCategory =
-      selectedCategory === 'All' || product.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'Все' || product.category === selectedCategory;
 
     // Filter by search query
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
 
     // Filter by price range
     const productPrice = product.price;
@@ -71,7 +75,7 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
       <div className="w-[80%] mx-auto">
         <h1 className="text-4xl mt-5 md:mt-20 text-gray-800 font-normal text-center mb-8">Откройте наши продукты</h1>
         
-        {/* Секция поиска и фильтра */}
+        {/* Search and filter section */}
         <div className="flex flex-wrap gap-4 mb-8 items-center">
           {/* Поле ввода для поиска */}
           <div className="relative flex-grow max-w-md">
@@ -105,27 +109,27 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
           </div>
 
           {/* Опция "Все фильтры" */}
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <button className="px-3 py-2 gap-5 border border-gray-300 rounded-lg flex items-center hover:bg-gray-800">
               <span>Все фильтры</span>
               <FaFilter className="w-4 h-4" />
             </button>
-          </div>
+          </div> */}
         </div>
 
-        {/* Фильтры по категориям */}
+        {/* Category filters */}
         <div className="flex gap-4 mb-8 flex-wrap">
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
+              key={category.id}
+              onClick={() => setSelectedCategory(category.value)}
               className={`px-8 py-2 rounded-full border ${
-                selectedCategory === category
-                  ? 'bg-black border-gray-300'
+                selectedCategory === category.value
+                  ? 'bg-black text-white border-gray-300'
                   : 'border-gray-300 hover:bg-gray-600'
               }`}
             >
-              {category}
+              {category.id}
             </button>
           ))}
         </div>
@@ -137,33 +141,37 @@ const ProductDiscovery = ({ likedProducts = [], setLikedProducts }) => {
           </div>
         ) : (
           // Сетка продуктов
-          <div className="grid mb-20 md:mb-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid mb-20 md:mb-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {filteredProducts.map((product) => (
-              <div key={product._id} className="flex flex-col">
-                <div className="bg-gray-100 rounded-lg aspect-square mb-4 flex items-center justify-center">
-                  <div className=" border-2 border-white flex items-center justify-center">
+              <div key={product._id} className="flex flex-col h-full">
+                <div className="relative bg-gray-100 rounded-lg overflow-hidden group">
+                  <div className="aspect-square w-full">
                     <img
                       src={product?.images[0]?.mainImage}
                       alt={product.name}
-                      className="w-full h-full object-cover rounded-lg"
-                      onClick={() => handleProductClick(product)} // Open modal on product click
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      onClick={() => handleProductClick(product)}
                     />
                   </div>
                 </div>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg text-gray-800 font-normal">{product.name}</h3>
-                    <p className="text-gray-600">{new Intl.NumberFormat('ru-RU').format(product.price)} ₸</p>
+                <div className="flex justify-between items-start mt-3 px-1">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base text-gray-800 font-medium truncate">{product.name}</h3>
+                    <p className="text-gray-600 text-sm mt-1">{new Intl.NumberFormat('ru-RU').format(product.price)} ₸</p>
                   </div>
-                  <div className="flex gap-2">
-                    <button className="bg-white outline-none focus:ring-0 focus:shadow-none w-6 h-6" onClick={() => toggleLike(product)}>
-                      {likedProducts.some(p => p._id === product._id) ? (
-                        <FaHeart className="text-red-500 outline-none w-6 h-6" />
-                      ) : (
-                        <FaRegHeart className="text-gray-500 outline-none w-6 h-6" />
-                      )}
-                    </button>
-                  </div>
+                  <button 
+                    className="flex-shrink-0 ml-2 bg-white outline-none focus:ring-0 focus:shadow-none w-6 h-6" 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleLike(product);
+                    }}
+                  >
+                    {likedProducts.some(p => p._id === product._id) ? (
+                      <FaHeart className="text-red-500 outline-none w-6 h-6" />
+                    ) : (
+                      <FaRegHeart className="text-gray-500 outline-none w-6 h-6" />
+                    )}
+                  </button>
                 </div>
               </div>
             ))}

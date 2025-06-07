@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { CartButton } from './Cart';
 
-const Navbar = () => {
+const Navbar = ({ handleCartClick, likedProducts }) => {
   const [isVisible, setIsVisible] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track the mobile menu state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   let lastScrollY = 0;
 
   useEffect(() => {
@@ -22,49 +23,46 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <div
-          className={`border-b-2 bg-white z-50 text-base font-light left-0 fixed top-0 w-full border-neutral-100 border-solid transition-transform duration-300 ${
-            isVisible ? "translate-y-0 bg-white" : "-translate-y-full"
-          }`}
-        >
-          <div className="items-center justify-between px-6 w-full m-auto sm:max-w-[40.00rem] md:max-w-3xl md:relative md:pl-6 md:pr-6 md:pt-5 md:pb-5 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl">
-            <div className="text-gray-800 font-medium flex justify-between items-center">
-              {/* Logo */}
-              <div className="w-32 m-auto md:w-40">
-                <Link to="/" className="items-center justify-center flex">
-                  <img
-                    className="cursor-pointer w-40 h-auto max-w-full"
-                    src="https://res.cloudinary.com/dyyyaoggd/image/upload/v1740998675/logo_sppzis.svg"
-                    alt="Логотип"
-                  />
-                </Link>
-              </div>
+    <div className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="border-b-2 border-neutral-100">
+        <div className="items-center justify-between px-6 w-full m-auto sm:max-w-[40.00rem] md:max-w-3xl md:relative md:pl-6 md:pr-6 md:pt-5 md:pb-5 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl">
+          <div className="text-gray-800 font-medium flex justify-between items-center">
+            {/* Logo */}
+            <div className="w-32 m-auto md:w-40">
+              <Link to="/" className="items-center justify-center flex">
+                <img
+                  className="cursor-pointer w-40 h-auto max-w-full"
+                  src="https://res.cloudinary.com/dyyyaoggd/image/upload/v1740998675/logo_sppzis.svg"
+                  alt="Логотип"
+                />
+              </Link>
+            </div>
 
-              {/* Mobile Menu Button */}
+            {/* Cart and Mobile Menu Buttons */}
+            <div className="flex bg-white items-center gap-4">
+              <CartButton handleCartClick={handleCartClick} likedProducts={likedProducts} />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 bg-white text-black  focus:outline-none"
+                className="md:hidden p-2 bg-white text-black focus:outline-none"
               >
                 <span className="text-2xl">{isMenuOpen ? "×" : "☰"}</span>
               </button>
             </div>
           </div>
+        </div>
 
-          {/* Navigation links */}
-          <div
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } md:flex justify-center px-6 flex-col md:flex-row w-full text-sm text-stone-950 font-bold uppercase sm:max-w-[40.00rem] md:max-w-3xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl`}
-          >
+        {/* Navigation links */}
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } md:flex justify-center items-center px-6 flex-col md:flex-row w-full text-sm text-stone-950 font-bold uppercase sm:max-w-[40.00rem] md:max-w-3xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl mx-auto`}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center w-full gap-4 md:gap-8">
             <div className="pb-4 text-gray-800 pt-2 md:pl-6 md:pr-6">
               <Link to="/products" className="text-gray-800">
                 Цветы
               </Link>
             </div>
-
-            
 
             <div className="pb-4 pt-2 md:pl-6 md:pr-6">
               <Link to="/" className="text-gray-800">

@@ -57,7 +57,7 @@ const App = () => {
               element={
                 <>
                   <div className="bg-white ">
-                    <Navbar />
+                    <Navbar handleCartClick={handleCartClick} likedProducts={likedProducts} />
                     <FlowerSlider />
                     <Perks />
                     <FlowersWeekRecom type="week" likedProducts={likedProducts} setLikedProducts={setLikedProducts} />
@@ -69,8 +69,6 @@ const App = () => {
                     <Feedback />
                     <Footer />
                   </div>
-
-                  {!isModalOpen && <CartButton handleCartClick={handleCartClick} likedProducts={likedProducts} />}
                 </>
               }
             />
@@ -84,10 +82,31 @@ const App = () => {
               }
             />
             <Route path="/logIn" element={<div className="w-screen"> <LogIn /></div>} />
-            <Route path="/special-offers" element={ <div className="flex flex-col gap-20" > <Navbar /> <SpecialOptionsPage /> <Footer /></div>} />
-            <Route path="/products" element={<div className="flex flex-col gap-20" > <Navbar /> <ProductDiscovery likedProducts={likedProducts} setLikedProducts={setLikedProducts} /> </div>} />
+            <Route path="/special-offers" element={
+              <div className="flex flex-col gap-20" > 
+                <Navbar 
+                  handleCartClick={handleCartClick} 
+                  likedProducts={likedProducts} 
+                /> 
+                <SpecialOptionsPage /> 
+                <Footer />
+              </div>
+              } 
+            />
+            <Route path="/products" element={
+              <div className="flex flex-col gap-20" > 
+                <Navbar 
+                  handleCartClick={handleCartClick} 
+                  likedProducts={likedProducts} 
+                /> 
+                <ProductDiscovery 
+                  likedProducts={likedProducts} 
+                  setLikedProducts={setLikedProducts} 
+                /> 
+              </div>
+              }
+            />
           </Routes>
-        {/* Add the CartButton so it appears on all pages */}
 
         {/* Liked Items Modal */}
         {isModalOpen && <LikedItemsModal onClose={handleCloseModal} likedProducts={likedProducts} setLikedProducts={setLikedProducts} />}

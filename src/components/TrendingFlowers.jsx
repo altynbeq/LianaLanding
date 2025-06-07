@@ -4,7 +4,7 @@ const TrendingFlowers = () => {
   const categories = [
     {
       id: 1,
-      name: "Собарнные букеты",
+      name: "Сборные букеты",
       image: "https://res.cloudinary.com/dzzldqqsc/image/upload/v1744808578/%D0%A1%D0%BE%D0%B1%D0%B0%D1%80%D0%BD%D0%BD%D1%8B%D0%B5_gtb0vp.jpg",
       alt: "Белые цветы в стеклянной вазе"
     },
